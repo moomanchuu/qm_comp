@@ -3,6 +3,7 @@ using PrettyTables
 using Yao
 using Distributions
 using Statistics
+using Random
 
 # reg_zero3 = zero_state(3) # zero state |000>
 
@@ -79,10 +80,17 @@ end
 
 function Evolve(x, dist)
 	S = rand(dist, n,n) # Random matrix drawn from probabilty distribution
-	S = S ./ sum(S, dims=1) # normalize matrix so its Left Stochastic ie, Columns sum to 1
-	U = S / sqrt(S * S')
+	# S = S ./ sum(S, dims=1) # normalize matrix so its Left Stochastic ie, Columns sum to 1
+	#  U = S / sqrt(S * S')
+	
+	# To get a unitary matrix, use QR decomposition
+	Q, R = qr(S)
 
-	# pretty_table(U)
+	# Make it left stochastic ie columns sum to 1
+	U = Q ./ sum(abs.(Q), dims=2)
+
+    	pretty_table(U)
+
 	H_new = U*H*U' # evolution via stochastic matrix. ' is shorthand for hermitian conjugate
 	# pretty_table(S)
 	return H_new
