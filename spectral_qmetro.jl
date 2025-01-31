@@ -224,24 +224,7 @@ function compute_sg(tm, Nq)
     sg = 1 - s[2]
     return sg, s
 end
-# N = 9
-# J = 1.0 
-# h = 0.5 
-# beta = 1.0  
 
-#=tm_transverse_jump = compute_tm_jump(transverse_ising_H(J, h, N), beta, [pauliX, pauliY, pauliZ])
-println("Transition Matrix with Jump Operators (Transverse Ising):")
-pretty_table(tm_transverse_jump)
-
-println("Transition Matrix with Jump Operators (1D Chain):")
-pretty_table(tm_chain_jump)
-sg_transverse, asdf = compute_sg(tm_transverse_jump, N)
-println("Eigenvalues, Spectral Gap: ", asdf, ", ", sg_transverse)=#
-
-# tm_chain_jump = compute_tm_jump_optimized(Matrix(H_sparse_chain(N)), beta, [pauliX, pauliY, pauliZ])
-
-# sg_chain, asdf = compute_sg(tm_chain_jump, N)
-# println("Eigenvalues, Spectral Gap: ", asdf, ", ", sg_chain)
 
 function compute_sg_and_time(N, J, h, beta)
     H = H_sparse_chain(N)

@@ -5,10 +5,10 @@ using Distributions
 using PrettyTables
 
 # Define single-qubit Pauli matrices and identity matrix
-const pauliX = [0 1; 1 0]
-const pauliY = [0 -im; im 0]
-const pauliZ = [1 0; 0 1]
-const I2 = [1 0; 0 1]
+pauliX = [0 1; 1 0]
+pauliY = [0 -im; im 0]
+pauliZ = [1 0; 0 -1]
+I2 = [1 0; 0 1]
 
 
 function gibbs_state(H, beta)
