@@ -1,9 +1,9 @@
 using LinearAlgebra, SparseArrays, PrettyTables, Arpack, Base.Threads, Plots
 
-const pauliX = ComplexF64[0 1; 1 0]
-const pauliY = ComplexF64[0 -im; im 0]
-const pauliZ = ComplexF64[1 0; 0 -1]
-const I2 = ComplexF64[1 0; 0 1]
+pauliX = ComplexF64[0 1; 1 0]
+pauliY = ComplexF64[0 -im; im 0]
+pauliZ = ComplexF64[1 0; 0 -1]
+I2 = ComplexF64[1 0; 0 1]
 
 
 function get_spin(state::Int, pos::Int, N::Int)

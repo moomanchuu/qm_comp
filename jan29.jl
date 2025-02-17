@@ -162,7 +162,7 @@ end
 # ====== 7. Run the Test ====== #
 N = 5
 beta = 1.0
-iterations = 10000
+iterations = 100000
 
 H = Matrix(H_sparse_chain(N))
 jump_operators = [pauliX, pauliY, pauliZ]
